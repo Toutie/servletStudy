@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 /**学习一下servlet
  * @author wang
  */
-public class ServletStudy extends HttpServlet implements Servlet {
+public class ServletStudy extends HttpServlet {
     /**
      * //要返回的信息
      */
@@ -46,6 +46,10 @@ public class ServletStudy extends HttpServlet implements Servlet {
         System.out.println("SessionId is : "+ id);
 
         System.out.println("responseContentType: "+ response.getContentType()+"\n"+response.getHeaderNames());
+
+        System.out.println(request.getParameterNames());
+        System.out.println(request.getAttributeNames());
+        System.out.println();
     }
 
     /**
@@ -57,4 +61,16 @@ public class ServletStudy extends HttpServlet implements Servlet {
         super.destroy();
     }
 
+    public int getInt(int value){
+        return value << 1;
+    }
+    public int getInt(int value1,int value2){
+        return this.getInt(value1)+value2;
+    }
+
+    public static void main(String[] args) {
+        ServletStudy servletStudy = new ServletStudy();
+        System.out.println(servletStudy.getInt(2,2));
+        System.out.println("我在用 vim 插件 哈哈哈哈哈哈哈哈哈哈！");
+    }
 }
